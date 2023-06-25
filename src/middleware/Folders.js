@@ -7,7 +7,7 @@ function createFolderToGroupFiles(req, res, next) {
   const pathComplete = path.resolve(__dirname, '..', 'tmp', folderId)
 
   if(!fs.existsSync(pathComplete)){
-    fs.mkdirSync(pathComplete)
+    fs.mkdirSync(pathComplete, { recursive: true })
   }
   req.folderId = folderId
   next()
